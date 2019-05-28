@@ -1,18 +1,32 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Eae Galera do Reggae</title>
-    <link rel="stylesheet" href="estilo.css"/>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div class = "a">
-        <h1> Fogo na babilonia </h1>
-        <h2> Nego é cabeça de gelo</h2>
+        <h1>Blog django </h1>
+
     </div>
-    <div class = "b">
-        <h1> Fogo na babilonia </h1>
-        <h2> Nego é cabeça de gelo</h2>
+
+
+{% for valor in posts %}
+    <div>
+        <p> Publicado em: {{valor.published_date}} </p>
+        <h1><a href=""> {{valor.title}} </a></h1>
+        <p>{{valor.text}}</p>
     </div>
+{% endfor %}
 </body>
 </html>
